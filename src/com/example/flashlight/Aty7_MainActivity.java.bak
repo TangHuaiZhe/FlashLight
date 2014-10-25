@@ -1,4 +1,4 @@
-ï»¿package com.example.flashlight;
+package com.example.flashlight;
 
 import android.graphics.Color;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 /*
  * 
- * å¤„ç†æ‰€æœ‰çš„ç‚¹å‡»äº‹ä»¶
+ * ´¦ÀíËùÓĞµÄµã»÷ÊÂ¼ş
  * 
  * 
  */
@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class Aty7_MainActivity extends Aty6_PoliceLight {
 
-	// ç‚¹å‡»æ‰‹ç”µç­’åŠŸèƒ½æŒ‰é’®äº‹ä»¶,éœ€è¦æŠŠViewä¼ å…¥ï¼Œå¦åˆ™å®‰å“å°±æ— æ³•æ‰¾åˆ°â€¦â€¦ä¸çŸ¥ä¸ºä½•
+	// µã»÷ÊÖµçÍ²¹¦ÄÜ°´Å¥ÊÂ¼ş,ĞèÒª°ÑView´«Èë£¬·ñÔò°²×¿¾ÍÎŞ·¨ÕÒµ½¡­¡­²»ÖªÎªºÎ
 	public void onClick_ToFlashlight(View view) {
 		hideAll();
 		if (currentType != UIType.UI_TYPE_FLASHLIGHT) {
@@ -25,7 +25,7 @@ public class Aty7_MainActivity extends Aty6_PoliceLight {
 		}
 	}
 
-	// è¿›å…¥è­¦å‘Šç¯åŠŸèƒ½äº‹ä»¶
+	// ½øÈë¾¯¸æµÆ¹¦ÄÜÊÂ¼ş
 	public void onClick_ToWarningLight(View view) {
 		hideAll();
 		if (currentType != UIType.UI_TYPE_WARNINGLIGHT) {
@@ -37,7 +37,7 @@ public class Aty7_MainActivity extends Aty6_PoliceLight {
 		}
 	}
 
-	// è¿›å…¥è«æ–¯ç”µç ç•Œé¢äº‹ä»¶
+	// ½øÈëÄªË¹µçÂë½çÃæÊÂ¼ş
 	public void onClick_ToMorse(View view) {
 		hideAll();
 		if (currentType != UIType.UI_TYPE_MORSE) {
@@ -47,24 +47,24 @@ public class Aty7_MainActivity extends Aty6_PoliceLight {
 		}
 	}
 
-	// è¿›å…¥ç”µç¯åŠŸèƒ½ç•Œé¢äº‹ä»¶
+	// ½øÈëµçµÆ¹¦ÄÜ½çÃæÊÂ¼ş
 	public void onClick_ToBulb(View v) {
 		hideAll();
 		if (currentType != UIType.UI_TYPE_BLUB) {
 			bulbUi.setVisibility(View.VISIBLE);
-			hideTextView.hide();// å¯åŠ¨çº¿ç¨‹ï¼Œæ§åˆ¶è‡ªå®šä¹‰ç»„ä»¶3såæ¶ˆå¤±
+			hideTextView.hide();// Æô¶¯Ïß³Ì£¬¿ØÖÆ×Ô¶¨Òå×é¼ş3sºóÏûÊ§
 			currentType = UIType.UI_TYPE_BLUB;
 			lastType = UIType.UI_TYPE_BLUB;
 		}
 	}
 
-	// è¿›å…¥å½©è‰²ç¯äº‹ä»¶
+	// ½øÈë²ÊÉ«µÆÊÂ¼ş
 	public void onClick_ToColor(View v) {
 		hideAll();
 		if (currentType != UIType.UI_TYPE_COLOR) {
 			ColorLightUI.setVisibility(View.VISIBLE);
 			screenBrightness(1f);
-			// hideTextView.hide();//å¯åŠ¨çº¿ç¨‹ï¼Œæ§åˆ¶è‡ªå®šä¹‰ç»„ä»¶3såæ¶ˆå¤±
+			// hideTextView.hide();//Æô¶¯Ïß³Ì£¬¿ØÖÆ×Ô¶¨Òå×é¼ş3sºóÏûÊ§
 			currentType = UIType.UI_TYPE_COLOR;
 			lastType = UIType.UI_TYPE_COLOR;
 			ColorLighthideTextView.setTextColor(Color.rgb(
@@ -74,7 +74,7 @@ public class Aty7_MainActivity extends Aty6_PoliceLight {
 		}
 	}
 	
-	//è¿›å…¥è­¦ç¯äº‹ä»¶
+	//½øÈë¾¯µÆÊÂ¼ş
 	public  void onClick_ToPolice(View v){
 		hideAll();
 		if (currentType != UIType.UI_TYPE_POLICE) {
@@ -86,19 +86,19 @@ public class Aty7_MainActivity extends Aty6_PoliceLight {
 		}
 	}
 	
-	//è¿›å…¥è®¾ç½®äº‹ä»¶
+	//½øÈëÉèÖÃÊÂ¼ş
 	public void onClick_ToSettings(View v)
 	{
-		Toast.makeText(this, "å¾…ç»­â€¦â€¦", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "´ıĞø¡­¡­", Toast.LENGTH_SHORT).show();
 	}
 	
 	
 
 
-	// è®¾ç½®æŒ‰é’®çš„è§¦å‘äº‹ä»¶ï¼
+	// ÉèÖÃ°´Å¥µÄ´¥·¢ÊÂ¼ş£¡
 	public void onClick_Controller(View view) {
 		hideAll();
-		warningLightFlicker=false;//æ”¾ç½®åŒæ—¶ä¸¤ä¸ªè¿›ç¨‹äº¤å‰è¿è¡Œï¼Œè­¦å‘Šç¯å˜åŒ–é€Ÿåº¦å¿«ä¸€å€
+		warningLightFlicker=false;//·ÅÖÃÍ¬Ê±Á½¸ö½ø³Ì½»²æÔËĞĞ£¬¾¯¸æµÆ±ä»¯ËÙ¶È¿ìÒ»±¶
 		policeState=false;
 		
 		
@@ -106,9 +106,9 @@ public class Aty7_MainActivity extends Aty6_PoliceLight {
 		if (currentType != UIType.UI_TYPE_MAIN) {
 			MainControlUi.setVisibility(View.VISIBLE);
 			currentType = UIType.UI_TYPE_MAIN;
-			lastType=UIType.UI_TYPE_MAIN;//å®éªŒ
-			warningLightState = false;// æ§åˆ¶è­¦å‘Šç¯çº¿ç¨‹çš„å¸ƒå°”é‡
-			policeState=false;//åœæ­¢è­¦ç¯çš„å¾ªç¯
+			lastType=UIType.UI_TYPE_MAIN;//ÊµÑé
+			warningLightState = false;// ¿ØÖÆ¾¯¸æµÆÏß³ÌµÄ²¼¶ûÁ¿
+			policeState=false;//Í£Ö¹¾¯µÆµÄÑ­»·
 			screenBrightness(ScreenBrightness / 255f);
 		} else {
 			switch (lastType) {

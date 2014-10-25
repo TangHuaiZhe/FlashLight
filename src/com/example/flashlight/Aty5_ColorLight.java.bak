@@ -1,4 +1,4 @@
-ï»¿package com.example.flashlight;
+package com.example.flashlight;
 
 import com.customeView.HideTextView;
 
@@ -19,6 +19,6 @@ public class Aty5_ColorLight extends Aty4_Bulb {
 	}
 	
 	public void OnClick_ColorLight(View v){
-		Toast.makeText(this, "éœ€è¦è‡ªå®šä¹‰è°ƒè‰²æ¿æ§ä»¶ï¼Œæœªå®Œå¾…ç»­â€¦â€¦â€¦â€¦â€¦â€¦â€¦â€¦", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "ĞèÒª×Ô¶¨Òåµ÷É«°å¿Ø¼ş£¬Î´Íê´ıĞø¡­¡­¡­¡­¡­¡­¡­¡­", Toast.LENGTH_SHORT).show();
 	}
 }

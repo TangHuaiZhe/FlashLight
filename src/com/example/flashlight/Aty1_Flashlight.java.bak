@@ -1,4 +1,4 @@
-ï»¿package com.example.flashlight;
+package com.example.flashlight;
 
 import android.content.pm.PackageManager;
 import android.graphics.Point;
@@ -18,22 +18,22 @@ public class Aty1_Flashlight  extends  Aty0_BaseActivity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		//å¾—åˆ°å½“å‰å±å¹•çš„å°ºå¯¸ï¼Œç”¨pointå¯¹è±¡å­˜å‚¨ï¼ˆx,yï¼‰
+		//µÃµ½µ±Ç°ÆÁÄ»µÄ³ß´ç£¬ÓÃpoint¶ÔÏó´æ´¢£¨x,y£©
 		Point point=new Point();
 		getWindowManager().getDefaultDisplay().getSize(point);
 		
-		//åŠ¨æ€çš„åœ¨ä»£ç ä¸­è°ƒæ•´æ‰‹ç”µç­’çš„click  areaç©ºé—´ï¼Œç”¨åˆ°äº†layoutParams
+		//¶¯Ì¬µÄÔÚ´úÂëÖĞµ÷ÕûÊÖµçÍ²µÄclick  area¿Õ¼ä£¬ÓÃµ½ÁËlayoutParams
 		LayoutParams layoutParams=FlashlightController.getLayoutParams();
 		layoutParams.height=(int) (point.y*0.75);
 		layoutParams.width=point.x/3;
 		FlashlightController.setLayoutParams(layoutParams);
 		
-		//é—ªå…‰ç¯é»˜è®¤çŠ¶æ€
+		//ÉÁ¹âµÆÄ¬ÈÏ×´Ì¬
 		FlashlghtImageView.setTag(false);
 		
 		
 		/*		
-		 * ä¸‹é¢è¿™æ®µä»£ç å¯ä»¥å®ç°è®¾å¤‡çš„æŸ¥çœ‹ï¼Œæ”¯æŒçš„ç¡¬ä»¶ç‰¹æ€§FeatureInfo
+		 * ÏÂÃæÕâ¶Î´úÂë¿ÉÒÔÊµÏÖÉè±¸µÄ²é¿´£¬Ö§³ÖµÄÓ²¼şÌØĞÔFeatureInfo
 		FeatureInfo[] featureInfos= getPackageManager().getSystemAvailableFeatures();
 		for(FeatureInfo featureInfo:featureInfos)
 		{
@@ -50,13 +50,13 @@ public class Aty1_Flashlight  extends  Aty0_BaseActivity{
 		super.onPause();
 	}
 	
-	//å¼€å¯é—ªå…‰ç¯äº‹ä»¶
+	//¿ªÆôÉÁ¹âµÆÊÂ¼ş
 	public void onClick_OpenFlah(View v)
 	{
-		//åˆ¤æ–­æ‰‹æœºæ˜¯å¦å­˜åœ¨é—ªå…‰ç¯
+		//ÅĞ¶ÏÊÖ»úÊÇ·ñ´æÔÚÉÁ¹âµÆ
 		if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH))
 		{
-			Toast.makeText(this, "æ²¡æœ‰é—ªå…‰ç¯ï¼", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "Ã»ÓĞÉÁ¹âµÆ£¡", Toast.LENGTH_SHORT).show();
 			return;
 		}
 		if(((Boolean)FlashlghtImageView.getTag())==false)
@@ -73,13 +73,13 @@ public class Aty1_Flashlight  extends  Aty0_BaseActivity{
 	public void openFlash(){
 		TransitionDrawable drawable=(TransitionDrawable) FlashlghtImageView.getDrawable();
 		drawable.startTransition(200);
-		FlashlghtImageView.setTag(true);//æ ‡å¿—æ˜¯å¦å·²ç»æ‰“å¼€é—ªå…‰ç¯ï¼Œä¸€ç§æ–¹ä¾¿çš„æ•°æ®å­˜å‚¨æ–¹å¼
+		FlashlghtImageView.setTag(true);//±êÖ¾ÊÇ·ñÒÑ¾­´ò¿ªÉÁ¹âµÆ£¬Ò»ÖÖ·½±ãµÄÊı¾İ´æ´¢·½Ê½
 		
 		try {
-			//é—ªå…‰ç¯åªèƒ½å’Œç…§ç›¸æœºä¸€èµ·ä½¿ç”¨ï¼Œå› æ­¤åªèƒ½å…ˆä»è·å¾—Cameraå¯¹è±¡å¼€å§‹
+			//ÉÁ¹âµÆÖ»ÄÜºÍÕÕÏà»úÒ»ÆğÊ¹ÓÃ£¬Òò´ËÖ»ÄÜÏÈ´Ó»ñµÃCamera¶ÔÏó¿ªÊ¼
 			camera=Camera.open();
 			int  textureId=0;
-			//åªè¦æ‰“å¼€é—ªå…‰ç¯ï¼Œæ‰€ä»¥è¿™é‡Œå¯¹çº¹ç†çš„æ“ä½œå¾ˆç²—ç•¥
+			//Ö»Òª´ò¿ªÉÁ¹âµÆ£¬ËùÒÔÕâÀï¶ÔÎÆÀíµÄ²Ù×÷ºÜ´ÖÂÔ
 			camera.setPreviewTexture(new SurfaceTexture(textureId));
 			camera.startPreview();
 			
@@ -98,11 +98,11 @@ public class Aty1_Flashlight  extends  Aty0_BaseActivity{
 	public void closeFlash()
 	{
 		
-		//éœ€è¦åæ–¹å‘æ’­æ”¾
+		//ĞèÒª·´·½Ïò²¥·Å
 		TransitionDrawable drawable=(TransitionDrawable) FlashlghtImageView.getDrawable();
 		if(((Boolean)FlashlghtImageView.getTag())==true)
 		{
-			//åå‘æ’­æ”¾çš„æ–¹æ³•ï¼
+			//·´Ïò²¥·ÅµÄ·½·¨£¡
 			drawable.reverseTransition(200);
 			FlashlghtImageView.setTag(false);
 			if(camera!=null)

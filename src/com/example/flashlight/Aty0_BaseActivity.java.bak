@@ -1,4 +1,4 @@
-ï»¿package com.example.flashlight;
+package com.example.flashlight;
 
 import android.app.Activity;
 import android.hardware.Camera;
@@ -14,57 +14,57 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-//é“¾è¡¨è®¾è®¡æ¨¡å¼â€¦â€¦æ¯ä¸ªåŠŸèƒ½ä¸€ä¸ªç»“ç‚¹
-//æ­¤Activityä¸ºæ ¹Activity,å®šä¹‰ä¸€äº›åŸºæœ¬çš„å±æ€§å’Œæ–¹æ³•ï¼Œåº”ç”¨ä¸æ¯ä¸ªåŠŸèƒ½ç±»
+//Á´±íÉè¼ÆÄ£Ê½¡­¡­Ã¿¸ö¹¦ÄÜÒ»¸ö½áµã
+//´ËActivityÎª¸ùActivity,¶¨ÒåÒ»Ğ©»ù±¾µÄÊôĞÔºÍ·½·¨£¬Ó¦ÓÃÓëÃ¿¸ö¹¦ÄÜÀà
 
 public class Aty0_BaseActivity extends Activity {
 	ImageView FlashlghtImageView;
 	ImageView FlashlightController;
 	Camera camera;
 	Parameters parameters;//Camera service setting
-	protected EditText editText;//è«æ–¯ç”µç ç•Œé¢çš„EditText
-	ImageView bulbImageView;//ç”µç¯ç•Œé¢ä¸­çš„ç”µç¯
+	protected EditText editText;//ÄªË¹µçÂë½çÃæµÄEditText
+	ImageView bulbImageView;//µçµÆ½çÃæÖĞµÄµçµÆ
 	int  count;
 	
 	
-	//æšä¸¾åŠŸèƒ½ç•Œé¢
+	//Ã¶¾Ù¹¦ÄÜ½çÃæ
 	protected enum UIType {
 		UI_TYPE_MAIN, UI_TYPE_FLASHLIGHT, UI_TYPE_WARNINGLIGHT, 
 		UI_TYPE_MORSE, UI_TYPE_BLUB, UI_TYPE_COLOR, UI_TYPE_POLICE, 
 		UI_TYPE_SETTINGS
 	}
 	
-	//è®°å½•å½“å‰ç•Œé¢å’Œä¸Šæ¬¡ç•Œé¢,é»˜è®¤æ˜¯åœ¨æ‰‹ç”µç­’
+	//¼ÇÂ¼µ±Ç°½çÃæºÍÉÏ´Î½çÃæ,Ä¬ÈÏÊÇÔÚÊÖµçÍ²
 	protected UIType currentType=UIType.UI_TYPE_MAIN;
 	protected UIType lastType=UIType.UI_TYPE_MAIN;
 	
 	
-	//å®šä¹‰æ‰€æœ‰çš„è§†å›¾
+	//¶¨ÒåËùÓĞµÄÊÓÍ¼
 	protected FrameLayout FlashlightUI;
 	protected LinearLayout MainControlUi;
-	//è­¦å‘Šç¯è§†å›¾
+	//¾¯¸æµÆÊÓÍ¼
 	protected LinearLayout WarningLightUi;
-	//è«æ–¯è§†å›¾
+	//ÄªË¹ÊÓÍ¼
 	protected LinearLayout morseUI;
-	//ç”µç¯è§†å›¾
+	//µçµÆÊÓÍ¼
 	protected FrameLayout bulbUi;
-	//å½©è‰²ç¯è§†å›¾
+	//²ÊÉ«µÆÊÓÍ¼
 	protected FrameLayout ColorLightUI;
-	//è­¦ç¯è§†å›¾
+	//¾¯µÆÊÓÍ¼
 	protected FrameLayout PoliceLightUI;
 	
-	//å®šä¹‰ä¸¤ä¸ªå›¾åƒæ¡†
+	//¶¨ÒåÁ½¸öÍ¼Ïñ¿ò
 	protected ImageView warningLightUp;
 	protected ImageView warningLightDown;
 	
-	//ç³»ç»Ÿçš„é»˜è®¤äº®åº¦
+	//ÏµÍ³µÄÄ¬ÈÏÁÁ¶È
 	protected int ScreenBrightness;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);//æ˜¾ç¤ºè§†å›¾
-		//è§†å›¾è·å–ï¼Œæ³¨æ„æ˜¯ç”¨IDè·å–ï¼Œä¸æ˜¯ç”¨layout
+		setContentView(R.layout.activity_main);//ÏÔÊ¾ÊÓÍ¼
+		//ÊÓÍ¼»ñÈ¡£¬×¢ÒâÊÇÓÃID»ñÈ¡£¬²»ÊÇÓÃlayout
 		FlashlightUI=(FrameLayout)findViewById(R.id.FlashlightUI);
 		MainControlUi=(LinearLayout)findViewById(R.id.MainControlUi);
 		WarningLightUi=(LinearLayout) findViewById(R.id.WarningLightUi);
@@ -73,25 +73,25 @@ public class Aty0_BaseActivity extends Activity {
 		ColorLightUI=(FrameLayout) findViewById(R.id.ColorLightUI);
 		PoliceLightUI=(FrameLayout) findViewById(R.id.PoliceLightUi);
 		
-		//å›¾ç‰‡çš„è·å–ï¼Œæ‰‹ç”µç­’å›¾ç‰‡ï¼Œé€æ˜çš„ç‚¹å‡»åŒºåŸŸå›¾ç‰‡
+		//Í¼Æ¬µÄ»ñÈ¡£¬ÊÖµçÍ²Í¼Æ¬£¬Í¸Ã÷µÄµã»÷ÇøÓòÍ¼Æ¬
 		FlashlghtImageView = (ImageView) findViewById(R.id.imageView_falshlight);
 		FlashlightController = (ImageView) findViewById(R.id.imageView_clickArea);
 		
-		//è­¦å‘Šç¯å›¾ç‰‡çš„è·å–
+		//¾¯¸æµÆÍ¼Æ¬µÄ»ñÈ¡
 		warningLightUp=(ImageView) findViewById(R.id.warningLightUp);
 		warningLightDown=(ImageView) findViewById(R.id.warningLightDown);
 		
 		ScreenBrightness=getScreenBrightness();
 		
-		//è«æ–¯ç”µç ç•Œé¢çš„EditText
+		//ÄªË¹µçÂë½çÃæµÄEditText
 		editText=(EditText) findViewById(R.id.editext_morse_code);
 		bulbImageView=(ImageView) findViewById(R.id.imageview_bulb);
 	}
 	
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
-		//å®ç°è¿ç»­ä¸¤æ¬¡é€€å‡ºæŒ‰é’®æ‰ä¼šè®©ç¨‹åºé€€å‡º
-		count=0;//æ‹¦æˆªè§¦æ‘¸äº‹ä»¶ï¼Œä¾¦æµ‹åˆ°å±å¹•è§¦æ‘¸äº‹ä»¶ï¼ŒæŠŠä¹‹å‰è®°å½•çš„è¿”å›äº‹ä»¶è®¡ç®—æ¸…é›¶ã€‚
+		//ÊµÏÖÁ¬ĞøÁ½´ÎÍË³ö°´Å¥²Å»áÈÃ³ÌĞòÍË³ö
+		count=0;//À¹½Ø´¥ÃşÊÂ¼ş£¬Õì²âµ½ÆÁÄ»´¥ÃşÊÂ¼ş£¬°ÑÖ®Ç°¼ÇÂ¼µÄ·µ»ØÊÂ¼ş¼ÆËãÇåÁã¡£
 		return super.dispatchTouchEvent(ev);
 	}
 	
@@ -99,7 +99,7 @@ public class Aty0_BaseActivity extends Activity {
 	public void finish() {
 		count++;
 		if(count==1){
-			Toast.makeText(this, "å†æŒ‰ä¸€æ¬¡è¿”å›é”®é€€å‡ºåº”ç”¨ç¨‹åº", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "ÔÙ°´Ò»´Î·µ»Ø¼üÍË³öÓ¦ÓÃ³ÌĞò", Toast.LENGTH_SHORT).show();
 		}
 		if(count>1)
 		{
@@ -110,7 +110,7 @@ public class Aty0_BaseActivity extends Activity {
 	
 	
 	
-	//éšè—æ‰€æœ‰UIæ–¹æ³•
+	//Òş²ØËùÓĞUI·½·¨
 	protected void   hideAll() {
 		FlashlightUI.setVisibility(View.GONE);
 		MainControlUi.setVisibility(View.GONE);
@@ -135,7 +135,7 @@ public class Aty0_BaseActivity extends Activity {
 	protected int getScreenBrightness() {
 		int value=0;
 		try {
-			//è·å–ç³»ç»Ÿé»˜è®¤äº®åº¦
+			//»ñÈ¡ÏµÍ³Ä¬ÈÏÁÁ¶È
 			value=Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
 		} catch (Exception e) {
 			e.printStackTrace();

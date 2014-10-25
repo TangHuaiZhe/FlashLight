@@ -1,4 +1,4 @@
-﻿package com.example.flashlight;
+package com.example.flashlight;
 
 import com.customeView.HideTextView;
 import com.example.flashlight.R.drawable;

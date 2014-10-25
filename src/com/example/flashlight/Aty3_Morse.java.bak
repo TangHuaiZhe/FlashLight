@@ -1,4 +1,4 @@
-ï»¿package com.example.flashlight;
+package com.example.flashlight;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,12 +10,12 @@ import android.widget.Toast;
 
 public class Aty3_Morse extends Aty2_WarningLight {
 
-	private final int Dian_Time = 200; // 200ms,ç‚¹çš„æ—¶é—´
-	private final int Line_Time = Dian_Time * 3;// çº¿çš„æ—¶é—´
-	private final int DianAndLine_Time = Dian_Time; // ç‚¹çº¿ä¹‹é—´çš„æ—¶é—´é—´éš”
+	private final int Dian_Time = 200; // 200ms,µãµÄÊ±¼ä
+	private final int Line_Time = Dian_Time * 3;// ÏßµÄÊ±¼ä
+	private final int DianAndLine_Time = Dian_Time; // µãÏßÖ®¼äµÄÊ±¼ä¼ä¸ô
 
-	private final int CharAndChar_Time = Dian_Time * 3;// å•è¯å’Œå•è¯ä¹‹é—´çš„é—´éš”æ—¶é—´
-	private final int SentenAndSentence_Time = Dian_Time * 7;// å¥å­å’Œå¥å­ä¹‹é—´çš„é—´éš”æ—¶é—´
+	private final int CharAndChar_Time = Dian_Time * 3;// µ¥´ÊºÍµ¥´ÊÖ®¼äµÄ¼ä¸ôÊ±¼ä
+	private final int SentenAndSentence_Time = Dian_Time * 7;// ¾ä×ÓºÍ¾ä×ÓÖ®¼äµÄ¼ä¸ôÊ±¼ä
 
 	private String MorseCode;
 
@@ -68,7 +68,7 @@ public class Aty3_Morse extends Aty2_WarningLight {
 	public void onClick_SendMorseCode(View v) {
 		if (!getPackageManager().hasSystemFeature(
 				PackageManager.FEATURE_CAMERA_FLASH)) {
-			Toast.makeText(this, "å½“å‰è®¾å¤‡æ²¡æœ‰é—ªå…‰ç¯", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "µ±Ç°Éè±¸Ã»ÓĞÉÁ¹âµÆ", Toast.LENGTH_LONG).show();
 			return;
 		}
 		if (verifyMorseCode()) {
@@ -106,8 +106,8 @@ public class Aty3_Morse extends Aty2_WarningLight {
 	}
 
 	private void sendChar(char c) {
-		String morseCode = MorseCodeMap.get(c);// å–å¾—å¯¹åº”å­—ç¬¦çš„è«æ–¯ç”µç 
-		// ç„¶åéå†
+		String morseCode = MorseCodeMap.get(c);// È¡µÃ¶ÔÓ¦×Ö·ûµÄÄªË¹µçÂë
+		// È»ºó±éÀú
 		if (morseCode != null) {
 			String lastString = null;
 			for (int i = 0; i < morseCode.length(); i++) {
@@ -143,7 +143,7 @@ public class Aty3_Morse extends Aty2_WarningLight {
 	}
 
 	private void sendSentence(String s) {
-		String[] wordsStrings = s.split(" +");// æ ¹æ®ç»™å®š æ­£åˆ™è¡¨è¾¾å¼ çš„åŒ¹é…æ‹†åˆ†æ­¤å­—ç¬¦ä¸²
+		String[] wordsStrings = s.split(" +");// ¸ù¾İ¸ø¶¨ ÕıÔò±í´ïÊ½ µÄÆ¥Åä²ğ·Ö´Ë×Ö·û´®
 		System.out.println(wordsStrings);
 		for (int i = 0; i < wordsStrings.length; i++) {
 			sendString(wordsStrings[i]);
@@ -152,14 +152,14 @@ public class Aty3_Morse extends Aty2_WarningLight {
 			}
 		}
 
-		Toast.makeText(this, "è«æ–¯ç”µç å·²ç»å‘é€å®Œæˆ", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "ÄªË¹µçÂëÒÑ¾­·¢ËÍÍê³É", Toast.LENGTH_SHORT).show();
 
 	}
 
 	private boolean verifyMorseCode() {
 		MorseCode = editText.getText().toString().toLowerCase();
 		if ("".equals(MorseCode)) {
-			Toast.makeText(this, "è¯·è¾“å…¥è«æ–¯ç”µç å­å­—ç¬¦ä¸²", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "ÇëÊäÈëÄªË¹µçÂë×Ó×Ö·û´®", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		for (int i = 0; i < MorseCode.length(); i++) {
@@ -167,7 +167,7 @@ public class Aty3_Morse extends Aty2_WarningLight {
 			boolean pass = (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')
 					|| c != ' ';
 			if (!pass) {
-				Toast.makeText(this, "æ‘©å°”æ–¯ç”µç åªèƒ½æ˜¯å­—æ¯å’Œæ•°å­—ï¼", Toast.LENGTH_LONG)
+				Toast.makeText(this, "Ä¦¶ûË¹µçÂëÖ»ÄÜÊÇ×ÖÄ¸ºÍÊı×Ö£¡", Toast.LENGTH_LONG)
 				.show();
 				return false;
 			}

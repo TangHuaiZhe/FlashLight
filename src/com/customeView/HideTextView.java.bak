@@ -1,4 +1,4 @@
-﻿package com.customeView;
+package com.customeView;
 
 import android.content.Context;
 import android.os.Handler;

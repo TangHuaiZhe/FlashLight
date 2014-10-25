@@ -1,4 +1,4 @@
-﻿package com.example.flashlight;
+package com.example.flashlight;
 
 import android.graphics.Color;
 import android.os.Bundle;

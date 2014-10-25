@@ -1,12 +1,12 @@
-ï»¿package com.example.flashlight;
+package com.example.flashlight;
 
 import android.os.Bundle;
 import android.os.Handler;
 
 public class Aty2_WarningLight extends Aty1_Flashlight {
 
-	protected boolean warningLightFlicker; // true é—ªçƒï¼Œå¦åˆ™åœæ­¢é—ªçƒ
-	protected boolean warningLightState; // TRUEï¼šon-offï¼Œfalseï¼šoff-on
+	protected boolean warningLightFlicker; // true ÉÁË¸£¬·ñÔòÍ£Ö¹ÉÁË¸
+	protected boolean warningLightState; // TRUE£ºon-off£¬false£ºoff-on
 
 	private Handler warningHandler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
