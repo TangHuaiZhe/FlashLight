@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/PoliceLightUi"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="#FF00"
+    android:visibility="gone">
+
+    <com.customeView.HideTextView
+        android:id="@+id/textview_PoliceLight"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="警灯闪烁"
+        android:textSize="20sp" />
+    
+    
+</FrameLayout>

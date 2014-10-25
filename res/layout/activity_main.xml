@@ -1,0 +1,25 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<!--是以布局文件的文件名作为标志的,以下的所有布局（除了ui—main）
+其实都是让visibility属性为gone状态  -->
+    <include layout="@layout/ui_waringlight" />
+    <include layout="@layout/ui_main" />
+    <include layout="@layout/ui_flashlight" />
+    <include layout="@layout/ui_morse" />
+    <include layout="@layout/ui_bulb" />
+    <include layout="@layout/ui_colorlight"/>
+    <include layout="@layout/ui_policelight"/>
+
+    <ImageView
+        android:id="@+id/imageview_controller"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="onClick_Controller"
+        android:src="@drawable/controller" />
+
+</FrameLayout>
